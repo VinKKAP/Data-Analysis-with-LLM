@@ -113,6 +113,4 @@ Tables can also be generated using R chunks, as shown in @tbl-simple example.
 knitr::kable(head(mtcars)[,1:4])
 ```
 
-\frac{d^ y}{d x^} 
-
 # References {-}
