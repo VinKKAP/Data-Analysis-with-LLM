@@ -14,7 +14,7 @@ author:
           postal-code: Postal Code
     attributes:
         corresponding: true
-    note: This is the first author footnote.
+    note: This is the author.
   - name: Prof. Dr. Martin Spindler
     email: martin.spindler@uni-hamburg.de
     affiliations:
@@ -26,7 +26,7 @@ author:
           state: State
           postal-code: Postal Code
     note: |
-      Another author footnote, this is a very long footnote and it should be a really long footnote. But this footnote is not yet sufficiently long enough to make two lines of footnote text.
+      This is the Editor
 
 abstract: |
   This is the abstract. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue turpis, dictum non malesuada a, volutpat eget velit. Nam placerat turpis purus, eu tristique ex tincidunt et. Mauris sed augue eget turpis ultrices tincidunt. Sed et mi in leo porta egestas. Aliquam non laoreet velit. Nunc quis ex vitae eros aliquet auctor nec ac libero. Duis laoreet sapien eu mi luctus, in bibendum leo molestie. Sed hendrerit diam diam, ac dapibus nisl volutpat vitae. Aliquam bibendum varius libero, eu efficitur justo rutrum at. Sed at tempus elit.
@@ -35,6 +35,13 @@ keywords:
   - Data Analysis
   - Data Profiling
 date: last-modified
+output:
+  pdf_document:
+    includes:
+      in_header: header.tex
+geometry: "a4paper,left=35mm,right=35mm,top=4cm,bottom=4cm"
+fontsize: 11pt
+linestretch: 1.5
 bibliography: My EndNote Library.bib
 format:
   elsevier-pdf:
@@ -44,6 +51,10 @@ format:
       formatting: preprint
       # model: 3p # Don't set a model with preprint
       cite-style: authoryear
+number-sections: true
+lof: true
+lot: true
+
 ---
 
 Please make sure that your manuscript follows the guidelines in the 
@@ -63,15 +74,7 @@ Philipp Bach, Victor Chernozhukov, Martin Spindler, Closing the U.S. gender wage
 
 Sven Klaassen, Jan Teichert-Kluge, Philipp Bach, Victor Chernozhukov, Martin Spindler, Suhas Vijaykumar, DoubleMLDeep: Estimation of Causal Effects with Multimodal Data, available at arxiv, 2024.
 
-@RN5574
-
-
-
-
-
-
-
-
+[@RN5574]
 
 Here are two sample references:  @Feynman1963118 @Dirac1953888.
 

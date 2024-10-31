@@ -4,10 +4,12 @@
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
+  11pt,
   authoryear,
   preprint]{elsarticle}
 
 \usepackage{amsmath,amssymb}
+\usepackage{setspace}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -39,6 +41,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\usepackage[a4paper,left=35mm,right=35mm,top=4cm,bottom=4cm]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
@@ -202,10 +205,8 @@ Anwendung in der Betriebswirtschaftslehre},addressline={Street
 Address},city={Hamburg},postcode={Postal Code},postcodesep={}}
 
 \cortext[cor1]{Corresponding author}
-\fntext[fn1]{This is the first author footnote.}
-\fntext[fn2]{Another author footnote, this is a very long footnote and
-it should be a really long footnote. But this footnote is not yet
-sufficiently long enough to make two lines of footnote text.}
+\fntext[fn1]{This is the author.}
+\fntext[fn2]{This is the Editor}
         
 \begin{abstract}
 This is the abstract. Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -229,6 +230,9 @@ tempus elit.
 \end{keyword}
 \end{frontmatter}
     
+\listoffigures
+\listoftables
+\setstretch{1.5}
 Please make sure that your manuscript follows the guidelines in the
 Guide for Authors of the relevant journal. It is not necessary to
 typeset your manuscript in exactly the same way as an article, unless
@@ -265,7 +269,7 @@ Sven Klaassen, Jan Teichert-Kluge, Philipp Bach, Victor Chernozhukov,
 Martin Spindler, Suhas Vijaykumar, DoubleMLDeep: Estimation of Causal
 Effects with Multimodal Data, available at arxiv, 2024.
 
-\citet{RN5574}
+\citep{RN5574}
 
 Here are two sample references: \citet{Feynman1963118}
 \citet{Dirac1953888}.
