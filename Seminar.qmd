@@ -2,6 +2,7 @@
 title: Seminararbeit AI-assisted programming and data analysis
 subtitle: Data Profiling with LLM's - A Case Study on HR Data
 date-format: "D. MMMM YYYY"
+
 author:
   - name: Vincent-Konstantin Kapp
     email: vincent.kapp@studium.uni-hamburg.de
@@ -31,7 +32,6 @@ keywords:
   - Data Analysis
   - Data Profiling
 date: last-modified
-
 bibliography: My EndNote Library.bib
 fontsize: 11pt
 linestretch: 1.5
@@ -56,10 +56,8 @@ execute:
     warning: false
 jupyter: python3
 
-
 abstract: |
-  Datengetriebene Prozesse können nicht nur Unternehmen beim Optimieren der Prozesse sondern auch bei der entwicklung neuer Strategien helfen. Aber uum festzustellen welche Daten in den Datenbanken vorliegen und wie diese zu einernander stehen braucht es Mitarbeiter*innen die einzelnd überprüfen welche Daten es gibt und in welchen zusammenhängen, ausgehend von Commen Sense, es gibt. Data Profiling stellt Unternehmen mit historisch gewachsene Datenbanksysteme vor Herausforderungen für die Dategetriebene Transformation da. Können die aktuellen entwicklunge von Large Language Modellen (LLM) dazu beitragen, autamtisiert die zusammenhängen von Spalten zu erkennen? Um diese Frage zu beantworten, widmet sich diese Seminararbeit aufbauen von der Arbeit von Trummer 2024, wie gut LLM, anhand einer Case Study, die Korrelation von Daten zu erkennen.
-
+  Datengetriebene Prozesse können Unternehmen nicht nur dabei helfen, ihre Prozesse zu optimieren, sondern auch bei der Entwicklung neuer Strategien. Um festzustellen, welche Daten in den Datenbanken vorliegen und wie diese zueinander stehen, braucht es Mitarbeiter*innen, die einzeln überprüfen, welche Daten vorhanden sind und in welchen Zusammenhängen sie basierend auf Common Sense existieren. Data Profiling stellt Unternehmen mit historisch gewachsenen Datenbanksystemen vor Herausforderungen für die datengestützte Transformation. Können die aktuellen Entwicklungen von Large Language Modellen (LLMs) dazu beitragen, automatisiert die Zusammenhänge von Spalten zu erkennen? Um diese Frage zu beantworten, widmet sich diese Seminararbeit, aufbauend auf der Arbeit von Trummer (2024), der Untersuchung, wie gut LLMs anhand einer Case Study die Korrelation von Daten erkennen können.
 ---
 
 # Einleitung
@@ -83,7 +81,7 @@ abstract: |
 ## Benchmark und Bewertungsmetriken
 
 # Durchführung der Fallstudie: Gender-Pay-Gap-Analyse
-[@bach2024heterogeneity].
+Meine Überlegung ist es das Ergebnisse von [@bach2024heterogeneity].
 
 ## Fragestellung
 
