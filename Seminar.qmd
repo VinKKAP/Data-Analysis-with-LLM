@@ -1,28 +1,28 @@
 ---
-title: Seminar
-subtitle: A Short Subtitle
+title: Seminararbeit AI-assisted programming and data analysis
+subtitle: Data Profiling with LLM`s a Case Study on HR Data
 author:
   - name: Vincent Kapp
-    email: alice@example.com
+    email: vincent.kapp@studium.uni-hamburg.de
     affiliations: 
-        - id: some-tech
-          name: Some Institute of Technology
-          department: Department Name
+        - id: 7778027
+          name: Universität Hamburg
+          department: M.Sc. BWL
           address: Street Address
-          city: City
+          city: Hamburg
           state: State
           postal-code: Postal Code
     attributes:
         corresponding: true
     note: This is the first author footnote.
-  - name: Martin Spindler
-    email: bob@example.com
+  - name: Prof. Dr. Martin Spindler
+    email: martin.spindler@uni-hamburg.de
     affiliations:
         - id: another-u
-          name: Another University
-          department: Department Name
+          name: Universität Hamburg
+          department: Statistik mit Anwendung in der Betriebswirtschaftslehre
           address: Street Address
-          city: City
+          city: Hamburg
           state: State
           postal-code: Postal Code
     note: |
@@ -33,8 +33,9 @@ abstract: |
 keywords: 
   - LLM
   - Data Analysis
+  - Data Profiling
 date: last-modified
-bibliography: bibliography.bib
+bibliography: My EndNote Library.bib
 format:
   elsevier-pdf:
     keep-tex: true
@@ -52,7 +53,25 @@ unless you are submitting to a camera-ready copy (CRC) journal.
 
 For detailed instructions regarding the elsevier article class, see   <https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions>
 
-# Bibliography styles
+# Einleitung
+Datengetriebene Prozesse können nicht nur Unternehmen beim Optimieren der Prozesse sondern auch bei der entwicklung neuer Strategien helfen. Aber uum festzustellen welche Daten in den Datenbanken vorliegen und wie diese zu einernander stehen braucht es Mitarbeiter*innen die einzelnd überprüfen welche Daten es gibt und in welchen zusammenhängen, ausgehend von Commen Sense, es gibt. Data Profiling stellt Unternehmen mit historisch gewachsene Datenbanksysteme vor Herausforderungen für die Dategetriebene Transformation da. Können die aktuellen entwicklunge von Large Language Modellen (LLM) dazu beitragen, autamtisiert die zusammenhängen von Spalten zu erkennen? Um diese Frage zu beantworten, widmet sich diese Seminararbeit aufbauen von der Arbeit von Trummer 2024, wie gut LLM, anhand einer Case Study, die Korrelation von Daten zu erkennen. 
+
+Philipp Bach, Victor Chernozhukov, Martin Spindler (2024). Heterogeneity in the U.S. Gender Wage Gap. Journal of the Royal Statistical Society: Series A, 187(1), 209-230, available online.
+
+Philipp Bach, Victor Chernozhukov, Martin Spindler, Closing the U.S. gender wage gap requires understanding its heterogeneity, Working Paper, available at arXiv, 2018.
+
+
+Sven Klaassen, Jan Teichert-Kluge, Philipp Bach, Victor Chernozhukov, Martin Spindler, Suhas Vijaykumar, DoubleMLDeep: Estimation of Causal Effects with Multimodal Data, available at arxiv, 2024.
+
+@RN5574
+
+
+
+
+
+
+
+
 
 Here are two sample references:  @Feynman1963118 @Dirac1953888.
 
@@ -70,12 +89,26 @@ Using `natbiboptions` variable in YAML header, you can set more options for `nat
 natbiboptions: longnamesfirst,angle,semicolon
 ```
 
-## Using CSL 
+# Hintergrund
 
 If `cite-method` is set to `citeproc` in `elsevier_article()`, then pandoc is used for citations instead of `natbib`. In this case, the `csl` option is used to format the references. By default, this template will provide an appropriate style, but alternative `csl` files are available from <https://www.zotero.org/styles?q=elsevier>. These can be downloaded
 and stored locally, or the url can be used as in the example header.
 
-# Equations
+
+## Data Profiling
+
+
+
+## Korrelation ermittelnt
+
+## Sprachmodelle
+
+## NLP for Data Bases
+
+
+## Benchmark
+
+### Equations
 
 Here is an equation:
 $$ 
@@ -87,7 +120,7 @@ $$
 
 Inline equations work as well: $\sum_{i = 2}^\infty\{\alpha_i^\beta\}$
 
-# Figures and tables
+### Figures and tables
 
 @fig-meaningless is generated using an R chunk.
 
@@ -112,5 +145,35 @@ Tables can also be generated using R chunks, as shown in @tbl-simple example.
 #| echo: true
 knitr::kable(head(mtcars)[,1:4])
 ```
+
+
+## Benchmark Data
+
+
+## Benchnmark Metrics
+
+# Benchmark Analysis
+
+
+# Comparing Prediction Methods
+
+## Description of Methods
+
+## Experimental Setup
+
+## Comparison Results
+
+# Scenario Variants
+
+# Results Breakdown
+
+# Other Correlation Metrics
+
+
+# Column Types
+
+
+# Conclusion 
+
 
 # References {-}

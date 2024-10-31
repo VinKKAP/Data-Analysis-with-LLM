@@ -169,9 +169,9 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={Seminar},
-  pdfauthor={Vincent Kapp; Martin Spindler},
-  pdfkeywords={LLM, Data Analysis},
+  pdftitle={Seminararbeit AI-assisted programming and data analysis},
+  pdfauthor={Vincent Kapp; Prof.~Dr.~Martin Spindler},
+  pdfkeywords={LLM, Data Analysis, Data Profiling},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -183,22 +183,23 @@
 \begin{document}
 
 \begin{frontmatter}
-\title{Seminar \\\large{A Short Subtitle} }
+\title{Seminararbeit AI-assisted programming and data
+analysis \\\large{Data Profiling with LLM`s a Case Study on HR Data} }
 \author[1]{Vincent Kapp%
 \corref{cor1}%
 \fnref{fn1}}
- \ead{alice@example.com} 
-\author[2]{Martin Spindler%
+ \ead{vincent.kapp@studium.uni-hamburg.de} 
+\author[2]{Prof.~Dr.~Martin Spindler%
 %
 \fnref{fn2}}
- \ead{bob@example.com} 
+ \ead{martin.spindler@uni-hamburg.de} 
 
-\affiliation[1]{organization={Some Institute of Technology, Department
-Name},addressline={Street Address},city={City},postcode={Postal
+\affiliation[1]{organization={Universität Hamburg, M.Sc.
+BWL},addressline={Street Address},city={Hamburg},postcode={Postal
 Code},postcodesep={}}
-\affiliation[2]{organization={Another University, Department
-Name},addressline={Street Address},city={City},postcode={Postal
-Code},postcodesep={}}
+\affiliation[2]{organization={Universität Hamburg, Statistik mit
+Anwendung in der Betriebswirtschaftslehre},addressline={Street
+Address},city={Hamburg},postcode={Postal Code},postcodesep={}}
 
 \cortext[cor1]{Corresponding author}
 \fntext[fn1]{This is the first author footnote.}
@@ -223,8 +224,8 @@ tempus elit.
 
 
 \begin{keyword}
-    LLM \sep 
-    Data Analysis
+    LLM \sep Data Analysis \sep 
+    Data Profiling
 \end{keyword}
 \end{frontmatter}
     
@@ -236,7 +237,35 @@ you are submitting to a camera-ready copy (CRC) journal.
 For detailed instructions regarding the elsevier article class, see
 \url{https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions}
 
-\section{Bibliography styles}\label{bibliography-styles}
+\section{Einleitung}\label{einleitung}
+
+Datengetriebene Prozesse können nicht nur Unternehmen beim Optimieren
+der Prozesse sondern auch bei der entwicklung neuer Strategien helfen.
+Aber uum festzustellen welche Daten in den Datenbanken vorliegen und wie
+diese zu einernander stehen braucht es Mitarbeiter*innen die einzelnd
+überprüfen welche Daten es gibt und in welchen zusammenhängen, ausgehend
+von Commen Sense, es gibt. Data Profiling stellt Unternehmen mit
+historisch gewachsene Datenbanksysteme vor Herausforderungen für die
+Dategetriebene Transformation da. Können die aktuellen entwicklunge von
+Large Language Modellen (LLM) dazu beitragen, autamtisiert die
+zusammenhängen von Spalten zu erkennen? Um diese Frage zu beantworten,
+widmet sich diese Seminararbeit aufbauen von der Arbeit von Trummer
+2024, wie gut LLM, anhand einer Case Study, die Korrelation von Daten zu
+erkennen.
+
+Philipp Bach, Victor Chernozhukov, Martin Spindler (2024). Heterogeneity
+in the U.S. Gender Wage Gap. Journal of the Royal Statistical Society:
+Series A, 187(1), 209-230, available online.
+
+Philipp Bach, Victor Chernozhukov, Martin Spindler, Closing the U.S.
+gender wage gap requires understanding its heterogeneity, Working Paper,
+available at arXiv, 2018.
+
+Sven Klaassen, Jan Teichert-Kluge, Philipp Bach, Victor Chernozhukov,
+Martin Spindler, Suhas Vijaykumar, DoubleMLDeep: Estimation of Causal
+Effects with Multimodal Data, available at arxiv, 2024.
+
+\citet{RN5574}
 
 Here are two sample references: \citet{Feynman1963118}
 \citet{Dirac1953888}.
@@ -271,7 +300,7 @@ options for \texttt{natbib} itself . Example
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Using CSL}\label{using-csl}
+\section{Hintergrund}\label{hintergrund}
 
 If \texttt{cite-method} is set to \texttt{citeproc} in
 \texttt{elsevier\_article()}, then pandoc is used for citations instead
@@ -281,7 +310,17 @@ appropriate style, but alternative \texttt{csl} files are available from
 \url{https://www.zotero.org/styles?q=elsevier}. These can be downloaded
 and stored locally, or the url can be used as in the example header.
 
-\section{Equations}\label{equations}
+\subsection{Data Profiling}\label{data-profiling}
+
+\subsection{Korrelation ermittelnt}\label{korrelation-ermittelnt}
+
+\subsection{Sprachmodelle}\label{sprachmodelle}
+
+\subsection{NLP for Data Bases}\label{nlp-for-data-bases}
+
+\subsection{Benchmark}\label{benchmark}
+
+\subsubsection{Equations}\label{equations}
 
 Here is an equation: \[ 
   f_{X}(x) = \left(\frac{\alpha}{\beta}\right)
@@ -292,7 +331,7 @@ Here is an equation: \[
 
 Inline equations work as well: \(\sum_{i = 2}^\infty\{\alpha_i^\beta\}\)
 
-\section{Figures and tables}\label{figures-and-tables}
+\subsubsection{Figures and tables}\label{figures-and-tables}
 
 \textbf{?@fig-meaningless} is generated using an R chunk.
 
@@ -305,9 +344,34 @@ Tables can also be generated using R chunks, as shown in
 
 \#\texttt{\{r\}\ \#\textbar{}\ label:\ tbl-simple\ \#\textbar{}\ tbl-cap:\ Caption\ centered\ above\ table\ \#\textbar{}\ echo:\ true\ knitr::kable(head(mtcars){[},1:4{]})}
 
+\subsection{Benchmark Data}\label{benchmark-data}
+
+\subsection{Benchnmark Metrics}\label{benchnmark-metrics}
+
+\section{Benchmark Analysis}\label{benchmark-analysis}
+
+\section{Comparing Prediction
+Methods}\label{comparing-prediction-methods}
+
+\subsection{Description of Methods}\label{description-of-methods}
+
+\subsection{Experimental Setup}\label{experimental-setup}
+
+\subsection{Comparison Results}\label{comparison-results}
+
+\section{Scenario Variants}\label{scenario-variants}
+
+\section{Results Breakdown}\label{results-breakdown}
+
+\section{Other Correlation Metrics}\label{other-correlation-metrics}
+
+\section{Column Types}\label{column-types}
+
+\section{Conclusion}\label{conclusion}
+
 
 \renewcommand\refname{References}
-  \bibliography{bibliography.bib}
+  \bibliography{My EndNote Library.bib}
 
 
 \end{document}
