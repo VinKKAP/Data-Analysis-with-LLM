@@ -1,6 +1,7 @@
 ---
 title: Seminararbeit AI-assisted programming and data analysis
-subtitle: Data Profiling with LLM`s a Case Study on HR Data
+subtitle: Data Profiling with LLM's - A Case Study on HR Data
+date-format: "D. MMMM YYYY"
 author:
   - name: Vincent-Konstantin Kapp
     email: vincent.kapp@studium.uni-hamburg.de
@@ -25,36 +26,41 @@ author:
           postal-code: Postal Code
     note: This is the Editor
 
-abstract: |
-  Datengetriebene Prozesse können nicht nur Unternehmen beim Optimieren der Prozesse sondern auch bei der entwicklung neuer Strategien helfen. Aber uum festzustellen welche Daten in den Datenbanken vorliegen und wie diese zu einernander stehen braucht es Mitarbeiter*innen die einzelnd überprüfen welche Daten es gibt und in welchen zusammenhängen, ausgehend von Commen Sense, es gibt. Data Profiling stellt Unternehmen mit historisch gewachsene Datenbanksysteme vor Herausforderungen für die Dategetriebene Transformation da. Können die aktuellen entwicklunge von Large Language Modellen (LLM) dazu beitragen, autamtisiert die zusammenhängen von Spalten zu erkennen? Um diese Frage zu beantworten, widmet sich diese Seminararbeit aufbauen von der Arbeit von Trummer 2024, wie gut LLM, anhand einer Case Study, die Korrelation von Daten zu erkennen.
 keywords: 
   - LLM
   - Data Analysis
   - Data Profiling
 date: last-modified
-geometry: "a4paper,left=35mm,right=35mm,top=4cm,bottom=4cm"
+
+bibliography: My EndNote Library.bib
 fontsize: 11pt
 linestretch: 1.5
-bibliography: My EndNote Library.bib
 format:
-  elsevier-pdf:
+  pdf:
+    documentclass: article
     keep-tex: true
-    journal:
-      name: Journal Name
-      formatting: preprint
-      # model: 3p # Don't set a model with preprint
-      cite-style: authoryear
+    titlepage: true
+    geometry: 
+      - "a4paper"
+      - left=35mm
+      - right=35mm
+      - top=4cm
+      - bottom=4cm
+    lof: false
+    lot: false
 number-sections: true
-lof: false
-lot: false
+
+execute:
+    eval: true
+    echo: true
+    warning: false
+jupyter: python3
+
+
+abstract: |
+  Datengetriebene Prozesse können nicht nur Unternehmen beim Optimieren der Prozesse sondern auch bei der entwicklung neuer Strategien helfen. Aber uum festzustellen welche Daten in den Datenbanken vorliegen und wie diese zu einernander stehen braucht es Mitarbeiter*innen die einzelnd überprüfen welche Daten es gibt und in welchen zusammenhängen, ausgehend von Commen Sense, es gibt. Data Profiling stellt Unternehmen mit historisch gewachsene Datenbanksysteme vor Herausforderungen für die Dategetriebene Transformation da. Können die aktuellen entwicklunge von Large Language Modellen (LLM) dazu beitragen, autamtisiert die zusammenhängen von Spalten zu erkennen? Um diese Frage zu beantworten, widmet sich diese Seminararbeit aufbauen von der Arbeit von Trummer 2024, wie gut LLM, anhand einer Case Study, die Korrelation von Daten zu erkennen.
 
 ---
-
-Philipp Bach, Victor Chernozhukov, Martin Spindler (2024). Heterogeneity in the U.S. Gender Wage Gap. Journal of the Royal Statistical Society: Series A, 187(1), 209-230, available online.
-
-Philipp Bach, Victor Chernozhukov, Martin Spindler, Closing the U.S. gender wage gap requires understanding its heterogeneity, Working Paper, available at arXiv, 2018.
-
-[@RN5574]
 
 # Einleitung
 
@@ -62,36 +68,45 @@ Philipp Bach, Victor Chernozhukov, Martin Spindler, Closing the U.S. gender wage
 
 ## Data Profiling
 
-## Korrelation ermittelnt
+## Korrelationserkennung in Datenbanken
+[@RN5578].
 
-## Sprachmodelle
+## Sprachmodelle und deren Anwendung in der Datenanalyse
+[@RN5576].
 
-## NLP for Data Bases
+# Methodik der Fallstudie
 
-## Benchmark
+## Datenbasis und Vorbereitung
 
-## Benchmark Data
+## Vorgehensweise zur Korrelationsanalyse mit LLM
 
-## Benchnmark Metrics
+## Benchmark und Bewertungsmetriken
 
-# Benchmark Analysis
+# Durchführung der Fallstudie: Gender-Pay-Gap-Analyse
+[@bach2024heterogeneity].
 
-# Comparing Prediction Methods
+## Fragestellung
 
-## Description of Methods
+## Implementierung des LLM für Korrelationserkennung
 
-## Experimental Setup
+## Benchmarking-Ergebnisse
 
-## Comparison Results
+# Vergleich und Auswertung der Ergebnisse
 
-# Scenario Variants
+## Vergleich der Ergebnisse mit Prompoting
 
-# Results Breakdown
+## Szenariobasierte Auswertung
 
-# Other Correlation Metrics
+## Bewertung der Korrelationserkennung
 
-# Column Types
+# Diskussion der Ergebnisse und Implikationen
 
-# Conclusion 
+## Interpretation der Ergebnisse
+
+## Limitationen
+
+## Praktische Anwendungsmöglichkeit
+
+# Fazit und Ausblick
 
 # References {-}

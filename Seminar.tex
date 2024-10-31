@@ -5,8 +5,7 @@
 %
 \documentclass[
   11pt,
-  authoryear,
-  preprint]{elsarticle}
+]{article}
 
 \usepackage{amsmath,amssymb}
 \usepackage{setspace}
@@ -79,6 +78,39 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
@@ -121,12 +153,9 @@
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
-\journal{Journal Name}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\usepackage[]{natbib}
-\bibliographystyle{elsarticle-harv}
 \usepackage{bookmark}
 
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -142,32 +171,19 @@
   urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
-\setlength{\parindent}{6pt}
+\title{Seminararbeit AI-assisted programming and data analysis}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Data Profiling with LLM's - A Case Study on HR Data}
+\author{Vincent-Konstantin Kapp \and Prof.~Dr.~Martin Spindler}
+\date{31. October 2024}
+
 \begin{document}
-
-\begin{frontmatter}
-\title{Seminararbeit AI-assisted programming and data
-analysis \\\large{Data Profiling with LLM`s a Case Study on HR Data} }
-\author[1]{Vincent-Konstantin Kapp%
-%
-\fnref{fn1}}
- \ead{vincent.kapp@studium.uni-hamburg.de} 
-\author[2]{Prof.~Dr.~Martin Spindler%
-%
-\fnref{fn2}}
- \ead{martin.spindler@uni-hamburg.de} 
-
-\affiliation[1]{organization={Universität Hamburg, M.Sc.
-BWL},addressline={Street Address},city={Hamburg},postcode={Postal
-Code},postcodesep={}}
-\affiliation[2]{organization={Universität Hamburg, Statistik mit
-Anwendung in der Betriebswirtschaftslehre},addressline={Street
-Address},city={Hamburg},postcode={Postal Code},postcodesep={}}
-
-\cortext[cor1]{Corresponding author}
-\fntext[fn1]{This is the author.}
-\fntext[fn2]{This is the Editor}
-        
+\maketitle
 \begin{abstract}
 Datengetriebene Prozesse können nicht nur Unternehmen beim Optimieren
 der Prozesse sondern auch bei der entwicklung neuer Strategien helfen.
@@ -184,75 +200,95 @@ widmet sich diese Seminararbeit aufbauen von der Arbeit von Trummer
 erkennen.
 \end{abstract}
 
-
-
-
-
-\begin{keyword}
-    LLM \sep Data Analysis \sep 
-    Data Profiling
-\end{keyword}
-\end{frontmatter}
-    
 \setstretch{1.5}
-Seminararbeit
-
-Philipp Bach, Victor Chernozhukov, Martin Spindler (2024). Heterogeneity
-in the U.S. Gender Wage Gap. Journal of the Royal Statistical Society:
-Series A, 187(1), 209-230, available online.
-
-Philipp Bach, Victor Chernozhukov, Martin Spindler, Closing the U.S.
-gender wage gap requires understanding its heterogeneity, Working Paper,
-available at arXiv, 2018.
-
-Sven Klaassen, Jan Teichert-Kluge, Philipp Bach, Victor Chernozhukov,
-Martin Spindler, Suhas Vijaykumar, DoubleMLDeep: Estimation of Causal
-Effects with Multimodal Data, available at arxiv, 2024.
-
-\citep{RN5574}
-
 \section{Einleitung}\label{einleitung}
 
 \section{Hintergrund}\label{hintergrund}
 
 \subsection{Data Profiling}\label{data-profiling}
 
-\subsection{Korrelation ermittelnt}\label{korrelation-ermittelnt}
+\subsection{Korrelationserkennung in
+Datenbanken}\label{korrelationserkennung-in-datenbanken}
 
-\subsection{Sprachmodelle}\label{sprachmodelle}
+(Trummer 2023).
 
-\subsection{NLP for Data Bases}\label{nlp-for-data-bases}
+\subsection{Sprachmodelle und deren Anwendung in der
+Datenanalyse}\label{sprachmodelle-und-deren-anwendung-in-der-datenanalyse}
 
-\subsection{Benchmark}\label{benchmark}
+(Arora et al. 2023).
 
-\subsection{Benchmark Data}\label{benchmark-data}
+\section{Methodik der Fallstudie}\label{methodik-der-fallstudie}
 
-\subsection{Benchnmark Metrics}\label{benchnmark-metrics}
+\subsection{Datenbasis und
+Vorbereitung}\label{datenbasis-und-vorbereitung}
 
-\section{Benchmark Analysis}\label{benchmark-analysis}
+\subsection{Vorgehensweise zur Korrelationsanalyse mit
+LLM}\label{vorgehensweise-zur-korrelationsanalyse-mit-llm}
 
-\section{Comparing Prediction
-Methods}\label{comparing-prediction-methods}
+\subsection{Benchmark und
+Bewertungsmetriken}\label{benchmark-und-bewertungsmetriken}
 
-\subsection{Description of Methods}\label{description-of-methods}
+\section{Durchführung der Fallstudie:
+Gender-Pay-Gap-Analyse}\label{durchfuxfchrung-der-fallstudie-gender-pay-gap-analyse}
 
-\subsection{Experimental Setup}\label{experimental-setup}
+(Bach, Chernozhukov, and Spindler 2024).
 
-\subsection{Comparison Results}\label{comparison-results}
+\subsection{Fragestellung}\label{fragestellung}
 
-\section{Scenario Variants}\label{scenario-variants}
+\subsection{Implementierung des LLM für
+Korrelationserkennung}\label{implementierung-des-llm-fuxfcr-korrelationserkennung}
 
-\section{Results Breakdown}\label{results-breakdown}
+\subsection{Benchmarking-Ergebnisse}\label{benchmarking-ergebnisse}
 
-\section{Other Correlation Metrics}\label{other-correlation-metrics}
+\section{Vergleich und Auswertung der
+Ergebnisse}\label{vergleich-und-auswertung-der-ergebnisse}
 
-\section{Column Types}\label{column-types}
+\subsection{Vergleich der Ergebnisse mit
+Prompoting}\label{vergleich-der-ergebnisse-mit-prompoting}
 
-\section{Conclusion}\label{conclusion}
+\subsection{Szenariobasierte
+Auswertung}\label{szenariobasierte-auswertung}
 
+\subsection{Bewertung der
+Korrelationserkennung}\label{bewertung-der-korrelationserkennung}
 
-\renewcommand\refname{References}
-  \bibliography{My EndNote Library.bib}
+\section{Diskussion der Ergebnisse und
+Implikationen}\label{diskussion-der-ergebnisse-und-implikationen}
+
+\subsection{Interpretation der
+Ergebnisse}\label{interpretation-der-ergebnisse}
+
+\subsection{Limitationen}\label{limitationen}
+
+\subsection{Praktische
+Anwendungsmöglichkeit}\label{praktische-anwendungsmuxf6glichkeit}
+
+\section{Fazit und Ausblick}\label{fazit-und-ausblick}
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-RN5576}
+Arora, Simran, Brandon Yang, Sabri Eyuboglu, Avanika Narayan, Andrew
+Hojel, Immanuel Trummer, and Christopher Ré. 2023. {``Language Models
+Enable Simple Systems for Generating Structured Views of Heterogeneous
+Data Lakes.''} Journal Article. \emph{arXiv Preprint arXiv:2304.09433}.
+
+\bibitem[\citeproctext]{ref-bach2024heterogeneity}
+Bach, Philipp, Victor Chernozhukov, and Martin Spindler. 2024.
+{``Heterogeneity in the US Gender Wage Gap.''} \emph{Journal of the
+Royal Statistical Society Series A: Statistics in Society} 187 (1):
+209--30.
+
+\bibitem[\citeproctext]{ref-RN5578}
+Trummer, Immanuel. 2023. {``Can Large Language Models Predict Data
+Correlations from Column Names?''} Journal Article. \emph{Proceedings of
+the VLDB Endowment} 16 (13): 4310--23.
+
+\end{CSLReferences}
+
 
 
 \end{document}
