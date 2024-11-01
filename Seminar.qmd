@@ -37,7 +37,7 @@ fontsize: 11pt
 linestretch: 1.5
 format:
   pdf:
-    documentclass: article
+    include-in-header: Vorlage_Lehrstuhl.tex
     keep-tex: true
     titlepage: true
     geometry: 
