@@ -1,0 +1,188 @@
+﻿\documentclass[a4paper,titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper,left=35mm,right=35mm,top=4cm,bottom=4cm}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{multirow}
+\numberwithin{equation}{section} %Nummeriert mathematische Umgebungen nach sections durch
+\usepackage[nodisplayskipstretch]{setspace} %lässt Abstand zwischen align-Umgebungen und Text auf 1.0
+\setstretch{1.5}% ergibt 1,5-fachen Zeilenabstand
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{titlepage}
+\begin{center}                     
+        {\Large\scshape \textbf{Bachelorarbeit}}\\*[2mm]
+				{\Large\scshape \textbf{B.Sc.-Studiengang "`Betriebswirtschaftslehre"'}}\\*[5mm]
+				{\large Universität Hamburg}\\*[0mm]
+				{\large Fakultät für Betriebswirtschaft}\\*[0mm]
+				{\large Lehrstuhl für Mathematik und Statistik in den Wirtschaftswissenschaften}\\*[0mm]
+				{\large \emph{Prof. Dr. Michael Merz}}\\*[30mm]
+        {\bf \LARGE\scshape Titel der Bachelorarbeit}\\*[12mm]
+				{\large Gutachter: Prof. Dr. Michael Merz}\\*[0mm]
+\end{center}  
+\vspace{5cm}
+\begin{tabbing}
+       \textbf{eingereicht von:}		\hspace{6.5cm}\=			\textbf{betreut von:}\\*[2mm]
+       <Name des Autors>								\> <Name des betreuenden Assistenten>\\*[2mm]		
+       <Matrikelnummer>  \\*[2mm]
+       <Straße><Hausnummer>										\> \textbf{Abgabedatum, Ort:} \\*[2mm]
+       <Postleitzahl><Ort>		   							\> <TT.MM.JJJJ>   \\*[2mm]
+       <Telefon> \\*[2mm]
+       <Email> \\*[2mm]
+\end{tabbing}
+\end{titlepage}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{Roman}
+\setcounter{page}{2}
+
+\tableofcontents
+\newpage
+
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\listoffigures
+\newpage
+
+\addcontentsline{toc}{section}{Tabellenverzeichnis}
+\listoftables
+\newpage
+
+\section*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+\newpage
+
+\section*{Symbolverzeichnis}
+\addcontentsline{toc}{section}{Symbolverzeichnis}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\section{Einleitung}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Erstes Kapitel des Hauptteils}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Erster Abschnitt}
+
+\subsubsection{Erster Unterabschnitt}
+
+\subsubsection{Zweiter Unterabschnitt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\subsection{Zweiter Abschnitt}
+
+\subsubsection{Erster Unterabschnitt}
+
+\subsubsection{Zweiter Unterabschnitt}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Zweites Kapitel des Hauptteils}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Erster Abschnitt}
+
+\subsubsection{Erster Unterabschnitt}
+
+\subsubsection{Zweiter Unterabschnitt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\subsection{Zweiter Abschnitt}
+
+\subsubsection{Erster Unterabschnitt}
+
+\subsubsection{Zweiter Unterabschnitt}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Schlussbetrachtung}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Ausblick}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Anhang A}
+\addcontentsline{toc}{section}{Anhang A}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Anhang B}
+\addcontentsline{toc}{section}{Anhang B}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begingroup
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\renewcommand*\refname{Literaturverzeichnis}
+
+\begin{thebibliography}{----}
+
+\bibitem{Mack1993}
+\textsc{Mack}, T. (1993): {\it Distribution-free calculation of the standard error of chain ladder reserve estimates}. ASTIN Bulletin 23/2, S. 171-183.
+
+\bibitem{Wuethrich-et-al2010}
+\textsc{Wüthrich}, M. V., \textsc{Bühlmann}, H. \& \textsc{Furrer}, H. (2010): {\it Market-Consistent Actuarial Valuation}. Springer Verlag, Berlin. 2. Auflage.
+\end{thebibliography}
+\endgroup
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Eidesstattliche Erklärung}
+\addcontentsline{toc}{section}{Eidesstattliche Erklärung}
+
+\glqq Ich versichere, dass ich die vorstehende Arbeit selbstständig und
+ohne fremde Hilfe angefertigt und mich anderer als der im beigefügten
+Verzeichnis angegebenen Hilfmittel nicht bedient habe. Alle Stellen, die
+wörtlich oder sinngemäß aus Veröffentlichungen übernommen wurden, sind als
+solche kenntlich gemacht. Alle Internetquellen sind der Arbeit beigefügt.
+Des Weiteren versichere ich, dass ich die Arbeit voher nicht in einem anderen
+Prüfungsverfahren eingereicht habe und dass die eingereichte schriftliche Fassung
+der auf dem elektronischen Speichermedium entspricht.\grqq 
+~\\[20mm]
+Ort, Datum\hspace{4cm} Unterschrift
+
+
+\end{document}
