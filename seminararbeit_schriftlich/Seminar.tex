@@ -5,9 +5,7 @@
 %
 \documentclass[
   11pt,
-  letterpaper,
-  DIV=11,
-  numbers=noendperiod]{scrartcl}
+]{report}
 
 \usepackage{amsmath,amssymb}
 \usepackage{setspace}
@@ -114,195 +112,25 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\documentclass[a4paper,titlepage]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[ngerman]{babel}
-\usepackage[T1]{fontenc}
-\usepackage{geometry}
-\geometry{a4paper,left=35mm,right=35mm,top=4cm,bottom=4cm}
-\usepackage{graphicx}
-\usepackage{amsmath,amsfonts,amssymb}
-\usepackage{multirow}
-\numberwithin{equation}{section} %Nummeriert mathematische Umgebungen nach sections durch
-\usepackage[nodisplayskipstretch]{setspace} %lässt Abstand zwischen align-Umgebungen und Text auf 1.0
-\setstretch{1.5}% ergibt 1,5-fachen Zeilenabstand
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{document}
-\begin{titlepage}
-\begin{center}                     
-        {\Large\scshape \textbf{Bachelorarbeit}}\\*[2mm]
-				{\Large\scshape \textbf{B.Sc.-Studiengang "`Betriebswirtschaftslehre"'}}\\*[5mm]
-				{\large Universität Hamburg}\\*[0mm]
-				{\large Fakultät für Betriebswirtschaft}\\*[0mm]
-				{\large Lehrstuhl für Mathematik und Statistik in den Wirtschaftswissenschaften}\\*[0mm]
-				{\large \emph{Prof. Dr. Michael Merz}}\\*[30mm]
-        {\bf \LARGE\scshape Titel der Bachelorarbeit}\\*[12mm]
-				{\large Gutachter: Prof. Dr. Michael Merz}\\*[0mm]
-\end{center}  
-\vspace{5cm}
+\usepackage{titling}
+\pretitle{\begin{titlepage}\begin{center}\Large\scshape \textbf{Seminararbeit}\\*[2mm]
+\Large\scshape \textbf{M.Sc.-Studiengang "`Betriebswirtschaftslehre"'}\\*[5mm]
+\large Universität Hamburg\\*[0mm]
+\large Fakultät für Betriebswirtschaft\\*[0mm]
+\large Lehrstuhl für Statistik mit Anwendung in der Betriebswirtschaftslehre\\*[0mm]
+\large \emph{Prof. Dr. Martin Spindler}\\*[30mm]
+\bf \LARGE\scshape Data Profiling mit Large Language Models - Eine Studie am Beispiel des US Gender-Pay-Gap\\*[12mm]
+\large Gutachter: Prof. Dr. Martin Spindler\\*[0mm]\end{center}\vspace{2cm}
 \begin{tabbing}
-       \textbf{eingereicht von:}		\hspace{6.5cm}\=			\textbf{betreut von:}\\*[2mm]
-       <Name des Autors>								\> <Name des betreuenden Assistenten>\\*[2mm]		
-       <Matrikelnummer>  \\*[2mm]
-       <Straße><Hausnummer>										\> \textbf{Abgabedatum, Ort:} \\*[2mm]
-       <Postleitzahl><Ort>		   							\> <TT.MM.JJJJ>   \\*[2mm]
-       <Telefon> \\*[2mm]
-       <Email> \\*[2mm]
-\end{tabbing}
-\end{titlepage}
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\pagenumbering{Roman}
-\setcounter{page}{2}
-
-\tableofcontents
-\newpage
-
-\addcontentsline{toc}{section}{Abbildungsverzeichnis}
-\listoffigures
-\newpage
-
-\addcontentsline{toc}{section}{Tabellenverzeichnis}
-\listoftables
-\newpage
-
-\section*{Abkürzungsverzeichnis}
-\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
-\newpage
-
-\section*{Symbolverzeichnis}
-\addcontentsline{toc}{section}{Symbolverzeichnis}
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\pagenumbering{arabic}
-\setcounter{page}{1}
-\section{Einleitung}
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Erstes Kapitel des Hauptteils}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Erster Abschnitt}
-
-\subsubsection{Erster Unterabschnitt}
-
-\subsubsection{Zweiter Unterabschnitt}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
-\subsection{Zweiter Abschnitt}
-
-\subsubsection{Erster Unterabschnitt}
-
-\subsubsection{Zweiter Unterabschnitt}
-
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Zweites Kapitel des Hauptteils}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Erster Abschnitt}
-
-\subsubsection{Erster Unterabschnitt}
-
-\subsubsection{Zweiter Unterabschnitt}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
-\subsection{Zweiter Abschnitt}
-
-\subsubsection{Erster Unterabschnitt}
-
-\subsubsection{Zweiter Unterabschnitt}
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Schlussbetrachtung}
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Ausblick}
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Anhang A}
-\addcontentsline{toc}{section}{Anhang A}
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Anhang B}
-\addcontentsline{toc}{section}{Anhang B}
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begingroup
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-\renewcommand*\refname{Literaturverzeichnis}
-
-\begin{thebibliography}{----}
-
-\bibitem{Mack1993}
-\textsc{Mack}, T. (1993): {\it Distribution-free calculation of the standard error of chain ladder reserve estimates}. ASTIN Bulletin 23/2, S. 171-183.
-
-\bibitem{Wuethrich-et-al2010}
-\textsc{Wüthrich}, M. V., \textsc{Bühlmann}, H. \& \textsc{Furrer}, H. (2010): {\it Market-Consistent Actuarial Valuation}. Springer Verlag, Berlin. 2. Auflage.
-\end{thebibliography}
-\endgroup
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Eidesstattliche Erklärung}
-\addcontentsline{toc}{section}{Eidesstattliche Erklärung}
-
-\glqq Ich versichere, dass ich die vorstehende Arbeit selbstständig und
-ohne fremde Hilfe angefertigt und mich anderer als der im beigefügten
-Verzeichnis angegebenen Hilfmittel nicht bedient habe. Alle Stellen, die
-wörtlich oder sinngemäß aus Veröffentlichungen übernommen wurden, sind als
-solche kenntlich gemacht. Alle Internetquellen sind der Arbeit beigefügt.
-Des Weiteren versichere ich, dass ich die Arbeit voher nicht in einem anderen
-Prüfungsverfahren eingereicht habe und dass die eingereichte schriftliche Fassung
-der auf dem elektronischen Speichermedium entspricht.\grqq 
-~\\[20mm]
-Ort, Datum\hspace{4cm} Unterschrift
-
-
-\end{document}
-\KOMAoption{captions}{tableheading}
+\textbf{eingereicht von:} \hspace{6.5cm}\= \textbf{betreut von:}\\*[2mm]
+Vincent-Konstantin Kapp \> Prof. Dr. Martin Spindler\\*[2mm]
+7778027 \\*[2mm]
+Methfesselstraße 16 \> \textbf{Abgabedatum, Ort:} \\*[2mm]
+20257 Hamburg \> 07.01.2025, Hamburg \\*[2mm]
+0152-56761933\\*[2mm]
+\\*[2mm]
+\end{tabbing}\end{titlepage}}
+\posttitle{}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -352,9 +180,7 @@ Ort, Datum\hspace{4cm} Unterschrift
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={Seminararbeit AI-assisted programming and data analysis},
-  pdfauthor={Vincent-Konstantin Kapp; Prof.~Dr.~Martin Spindler},
-  pdfkeywords={LLM, Data Analysis, Data Profiling},
+  pdftitle={Einleitung},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -362,16 +188,9 @@ Ort, Datum\hspace{4cm} Unterschrift
   urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
-\title{Seminararbeit AI-assisted programming and data analysis}
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-\subtitle{Data Profiling with LLM's - A Case Study on HR Data}
-\author{Vincent-Konstantin Kapp \and Prof.~Dr.~Martin Spindler}
-\date{1. November 2024}
+\title{Einleitung}
+\author{}
+\date{}
 
 \begin{document}
 \maketitle
@@ -388,77 +207,101 @@ aktuellen Entwicklungen von Large Language Modellen (LLMs) dazu
 beitragen, automatisiert die Zusammenhänge von Spalten zu erkennen? Um
 diese Frage zu beantworten, widmet sich diese Seminararbeit, aufbauend
 auf der Arbeit von Trummer (2024), der Untersuchung, wie gut LLMs anhand
-einer Case Study die Korrelation von Daten erkennen können.
+einer Case Study die Korrelation von Daten erkennen können. Dazu wird
+ein LLM auf Basis von GPT-3 trainiert und mit einem Benchmark-Verfahren
+verglichen. Die Ergebnisse zeigen, dass LLMs eine hohe Genauigkeit bei
+der Korrelationserkennung aufweisen und damit Unternehmen bei der
+Datenanalyse unterstützen können.
 \end{abstract}
 
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\listoffigures
+\listoftables
 \setstretch{1.5}
-\section{Einleitung}\label{einleitung}
+\chapter{Hintergrund}\label{hintergrund}
 
-\section{Hintergrund}\label{hintergrund}
+\section{Data Profiling}\label{data-profiling}
 
-\subsection{Data Profiling}\label{data-profiling}
-
-\subsection{Korrelationserkennung in
+\section{Korrelationserkennung in
 Datenbanken}\label{korrelationserkennung-in-datenbanken}
 
 (Trummer 2023).
 
-\subsection{Sprachmodelle und deren Anwendung in der
+\section{Sprachmodelle und deren Anwendung in der
 Datenanalyse}\label{sprachmodelle-und-deren-anwendung-in-der-datenanalyse}
 
 (Arora et al. 2023).
 
-\section{Methodik der Fallstudie}\label{methodik-der-fallstudie}
+\chapter{Methodik der Fallstudie}\label{methodik-der-fallstudie}
 
-\subsection{Datenbasis und
-Vorbereitung}\label{datenbasis-und-vorbereitung}
+\section{Datenbasis und Vorbereitung}\label{datenbasis-und-vorbereitung}
 
-\subsection{Vorgehensweise zur Korrelationsanalyse mit
+\section{Vorgehensweise zur Korrelationsanalyse mit
 LLM}\label{vorgehensweise-zur-korrelationsanalyse-mit-llm}
 
-\subsection{Benchmark und
+\section{Benchmark und
 Bewertungsmetriken}\label{benchmark-und-bewertungsmetriken}
 
-\section{Durchführung der Fallstudie:
+\chapter{Durchführung der Fallstudie:
 Gender-Pay-Gap-Analyse}\label{durchfuxfchrung-der-fallstudie-gender-pay-gap-analyse}
 
 Meine Überlegung ist es das Ergebnisse von (Bach, Chernozhukov, and
 Spindler 2024).
 
-\subsection{Fragestellung}\label{fragestellung}
+\section{Fragestellung}\label{fragestellung}
 
-\subsection{Implementierung des LLM für
+\section{Implementierung des LLM für
 Korrelationserkennung}\label{implementierung-des-llm-fuxfcr-korrelationserkennung}
 
-\subsection{Benchmarking-Ergebnisse}\label{benchmarking-ergebnisse}
+\section{Benchmarking-Ergebnisse}\label{benchmarking-ergebnisse}
 
-\section{Vergleich und Auswertung der
+\chapter{Vergleich und Auswertung der
 Ergebnisse}\label{vergleich-und-auswertung-der-ergebnisse}
 
-\subsection{Vergleich der Ergebnisse mit
+\section{Vergleich der Ergebnisse mit
 Prompoting}\label{vergleich-der-ergebnisse-mit-prompoting}
 
-\subsection{Szenariobasierte
-Auswertung}\label{szenariobasierte-auswertung}
+\section{Szenariobasierte Auswertung}\label{szenariobasierte-auswertung}
 
-\subsection{Bewertung der
+\section{Bewertung der
 Korrelationserkennung}\label{bewertung-der-korrelationserkennung}
 
-\section{Diskussion der Ergebnisse und
+\chapter{Diskussion der Ergebnisse und
 Implikationen}\label{diskussion-der-ergebnisse-und-implikationen}
 
-\subsection{Interpretation der
+\section{Interpretation der
 Ergebnisse}\label{interpretation-der-ergebnisse}
 
-\subsection{Limitationen}\label{limitationen}
+\section{Limitationen}\label{limitationen}
 
-\subsection{Praktische
+\section{Praktische
 Anwendungsmöglichkeit}\label{praktische-anwendungsmuxf6glichkeit}
 
-\section{Fazit und Ausblick}\label{fazit-und-ausblick}
+\chapter{Fazit und Ausblick}\label{fazit-und-ausblick}
 
-\section*{References}\label{references}
-\addcontentsline{toc}{section}{References}
+\chapter{Eidesstattliche Erklärung}\label{eidesstattliche-erkluxe4rung}
+
+\section*{Eidesstattliche Erklärung}
+\addcontentsline{toc}{section}{Eidesstattliche Erklärung}
+
+``Ich versichere, dass ich die vorstehende Arbeit selbstständig und ohne
+fremde Hilfe angefertigt und mich anderer als der im beigefügten
+Verzeichnis angegebenen Hilfmittel nicht bedient habe. Alle Stellen, die
+wörtlich oder sinngemäß aus Veröffentlichungen übernommen wurden, sind
+als solche kenntlich gemacht. Alle Internetquellen sind der Arbeit
+beigefügt. Des Weiteren versichere ich, dass ich die Arbeit voher nicht
+in einem anderen Prüfungsverfahren eingereicht habe und dass die
+eingereichte schriftliche Fassung der auf dem elektronischen
+Speichermedium entspricht.'' \textasciitilde\textbackslash{[}20mm{]}
+Ort, Datum\hspace{4cm} Unterschrift
+
+\chapter*{References}\label{references}
+\addcontentsline{toc}{chapter}{References}
 
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}

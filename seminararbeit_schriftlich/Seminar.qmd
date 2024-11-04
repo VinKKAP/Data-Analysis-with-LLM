@@ -1,43 +1,31 @@
 ---
-title: Seminararbeit AI-assisted programming and data analysis
-subtitle: Data Profiling with LLM's - A Case Study on HR Data
-date-format: "D. MMMM YYYY"
-
-author:
-  - name: Vincent-Konstantin Kapp
-    email: vincent.kapp@studium.uni-hamburg.de
-    affiliations: 
-        - id: 7778027
-          name: Universität Hamburg
-          department: M.Sc. BWL
-          address: Street Address
-          city: Hamburg
-          state: State
-          postal-code: Postal Code
-    note: This is the author.
-  - name: Prof. Dr. Martin Spindler
-    email: martin.spindler@uni-hamburg.de
-    affiliations:
-        - id: another-u
-          name: Universität Hamburg
-          department: Statistik mit Anwendung in der Betriebswirtschaftslehre
-          address: Street Address
-          city: Hamburg
-          state: State
-          postal-code: Postal Code
-    note: This is the Editor
-
-keywords: 
-  - LLM
-  - Data Analysis
-  - Data Profiling
-date: last-modified
+header-includes:
+  - |
+    \usepackage{titling}
+    \pretitle{\begin{titlepage}\begin{center}\Large\scshape \textbf{Seminararbeit}\\*[2mm]
+    \Large\scshape \textbf{M.Sc.-Studiengang "`Betriebswirtschaftslehre"'}\\*[5mm]
+    \large Universität Hamburg\\*[0mm]
+    \large Fakultät für Betriebswirtschaft\\*[0mm]
+    \large Lehrstuhl für Statistik mit Anwendung in der Betriebswirtschaftslehre\\*[0mm]
+    \large \emph{Prof. Dr. Martin Spindler}\\*[30mm]
+    \bf \LARGE\scshape Data Profiling mit Large Language Models - Eine Studie am Beispiel des US Gender-Pay-Gap\\*[12mm]
+    \large Gutachter: Prof. Dr. Martin Spindler\\*[0mm]\end{center}\vspace{2cm}
+    \begin{tabbing}
+    \textbf{eingereicht von:} \hspace{6.5cm}\= \textbf{betreut von:}\\*[2mm]
+    Vincent-Konstantin Kapp \> Prof. Dr. Martin Spindler\\*[2mm]
+    7778027 \\*[2mm]
+    Methfesselstraße 16 \> \textbf{Abgabedatum, Ort:} \\*[2mm]
+    20257 Hamburg \> 07.01.2025, Hamburg \\*[2mm]
+    0152-56761933\\*[2mm]
+    \\*[2mm]
+    \end{tabbing}\end{titlepage}}
+    \posttitle{}
 bibliography: My EndNote Library.bib
 fontsize: 11pt
 linestretch: 1.5
 format:
   pdf:
-    include-in-header: Vorlage_Lehrstuhl.tex
+    documentclass: report
     keep-tex: true
     titlepage: true
     geometry: 
@@ -46,8 +34,9 @@ format:
       - right=35mm
       - top=4cm
       - bottom=4cm
-    lof: false
-    lot: false
+    lof: true
+    lot: true
+    toc: true 
 number-sections: true
 
 execute:
@@ -57,8 +46,11 @@ execute:
 jupyter: python3
 
 abstract: |
-  Datengetriebene Prozesse können Unternehmen nicht nur dabei helfen, ihre Prozesse zu optimieren, sondern auch bei der Entwicklung neuer Strategien. Um festzustellen, welche Daten in den Datenbanken vorliegen und wie diese zueinander stehen, braucht es Mitarbeiter*innen, die einzeln überprüfen, welche Daten vorhanden sind und in welchen Zusammenhängen sie basierend auf Common Sense existieren. Data Profiling stellt Unternehmen mit historisch gewachsenen Datenbanksystemen vor Herausforderungen für die datengestützte Transformation. Können die aktuellen Entwicklungen von Large Language Modellen (LLMs) dazu beitragen, automatisiert die Zusammenhänge von Spalten zu erkennen? Um diese Frage zu beantworten, widmet sich diese Seminararbeit, aufbauend auf der Arbeit von Trummer (2024), der Untersuchung, wie gut LLMs anhand einer Case Study die Korrelation von Daten erkennen können.
+  Datengetriebene Prozesse können Unternehmen nicht nur dabei helfen, ihre Prozesse zu optimieren, sondern auch bei der Entwicklung neuer Strategien. Um festzustellen, welche Daten in den Datenbanken vorliegen und wie diese zueinander stehen, braucht es Mitarbeiter*innen, die einzeln überprüfen, welche Daten vorhanden sind und in welchen Zusammenhängen sie basierend auf Common Sense existieren. Data Profiling stellt Unternehmen mit historisch gewachsenen Datenbanksystemen vor Herausforderungen für die datengestützte Transformation. Können die aktuellen Entwicklungen von Large Language Modellen (LLMs) dazu beitragen, automatisiert die Zusammenhänge von Spalten zu erkennen? Um diese Frage zu beantworten, widmet sich diese Seminararbeit, aufbauend auf der Arbeit von Trummer (2024), der Untersuchung, wie gut LLMs anhand einer Case Study die Korrelation von Daten erkennen können. Dazu wird ein LLM auf Basis von GPT-3 trainiert und mit einem Benchmark-Verfahren verglichen. Die Ergebnisse zeigen, dass LLMs eine hohe Genauigkeit bei der Korrelationserkennung aufweisen und damit Unternehmen bei der Datenanalyse unterstützen können.
+
+
 ---
+
 
 # Einleitung
 
@@ -107,4 +99,21 @@ Meine Überlegung ist es das Ergebnisse von [@bach2024heterogeneity].
 
 # Fazit und Ausblick
 
+
+# Eidesstattliche Erklärung
+\section*{Eidesstattliche Erklärung}
+\addcontentsline{toc}{section}{Eidesstattliche Erklärung}
+
+"Ich versichere, dass ich die vorstehende Arbeit selbstständig und
+ohne fremde Hilfe angefertigt und mich anderer als der im beigefügten
+Verzeichnis angegebenen Hilfmittel nicht bedient habe. Alle Stellen, die
+wörtlich oder sinngemäß aus Veröffentlichungen übernommen wurden, sind als
+solche kenntlich gemacht. Alle Internetquellen sind der Arbeit beigefügt.
+Des Weiteren versichere ich, dass ich die Arbeit voher nicht in einem anderen
+Prüfungsverfahren eingereicht habe und dass die eingereichte schriftliche Fassung
+der auf dem elektronischen Speichermedium entspricht." ~\\[20mm]
+Ort, Datum\hspace{4cm} Unterschrift
+
+
 # References {-}
+
