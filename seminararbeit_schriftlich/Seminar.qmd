@@ -1,25 +1,4 @@
 ---
-header-includes:
-  - |
-    \usepackage{titling}
-    \pretitle{\begin{titlepage}\begin{center}\Large\scshape \textbf{Seminararbeit}\\*[2mm]
-    \Large\scshape \textbf{M.Sc.-Studiengang "`Betriebswirtschaftslehre"'}\\*[5mm]
-    \large Universität Hamburg\\*[0mm]
-    \large Fakultät für Betriebswirtschaft\\*[0mm]
-    \large Lehrstuhl für Statistik mit Anwendung in der Betriebswirtschaftslehre\\*[0mm]
-    \large \emph{Prof. Dr. Martin Spindler}\\*[30mm]
-    \bf \LARGE\scshape Data Profiling mit Large Language Models - Eine Studie am Beispiel des US Gender-Pay-Gap\\*[12mm]
-    \large Gutachter: Prof. Dr. Martin Spindler\\*[0mm]\end{center}\vspace{2cm}
-    \begin{tabbing}
-    \textbf{eingereicht von:} \hspace{6.5cm}\= \textbf{betreut von:}\\*[2mm]
-    Vincent-Konstantin Kapp \> Prof. Dr. Martin Spindler\\*[2mm]
-    7778027 \\*[2mm]
-    Methfesselstraße 16 \> \textbf{Abgabedatum, Ort:} \\*[2mm]
-    20257 Hamburg \> 07.01.2025, Hamburg \\*[2mm]
-    0152-56761933\\*[2mm]
-    \\*[2mm]
-    \end{tabbing}\end{titlepage}}
-    \posttitle{}
 bibliography: My EndNote Library.bib
 fontsize: 11pt
 linestretch: 1.5
@@ -27,7 +6,28 @@ format:
   pdf:
     documentclass: report
     keep-tex: true
-    titlepage: true
+    titlepage: false
+    header-includes:
+    - |
+      \usepackage{titling}
+      \pretitle{\begin{titlepage}\begin{center}\Large\scshape \textbf{Seminararbeit}\\*[2mm]
+      \Large\scshape \textbf{M.Sc.-Studiengang "`Betriebswirtschaftslehre"'}\\*[5mm]
+      \large Universität Hamburg\\*[0mm]
+      \large Fakultät für Betriebswirtschaft\\*[0mm]
+      \large Lehrstuhl für Statistik mit Anwendung in der Betriebswirtschaftslehre\\*[0mm]
+      \large \emph{Prof. Dr. Martin Spindler}\\*[30mm]
+      \bf \LARGE\scshape Data Profiling mit Large Language Models - Eine Studie am Beispiel des US Gender-Pay-Gap\\*[12mm]
+      \large Gutachter: Prof. Dr. Martin Spindler\\*[0mm]\end{center}\vspace{2cm}
+      \begin{tabbing}
+      \textbf{eingereicht von:} \hspace{6.5cm}\= \textbf{betreut von:}\\*[2mm]
+      Vincent-Konstantin Kapp \> Prof. Dr. Martin Spindler\\*[2mm]
+      7778027 \\*[2mm]
+      Methfesselstraße 16 \> \textbf{Abgabedatum, Ort:} \\*[2mm]
+      20257 Hamburg \> 07.01.2025, Hamburg \\*[2mm]
+      0152-56761933\\*[2mm]
+      \\*[2mm]
+      \end{tabbing}\end{titlepage}}
+      \posttitle{}
     geometry: 
       - "a4paper"
       - left=35mm
@@ -47,10 +47,7 @@ jupyter: python3
 
 abstract: |
   Datengetriebene Prozesse können Unternehmen nicht nur dabei helfen, ihre Prozesse zu optimieren, sondern auch bei der Entwicklung neuer Strategien. Um festzustellen, welche Daten in den Datenbanken vorliegen und wie diese zueinander stehen, braucht es Mitarbeiter*innen, die einzeln überprüfen, welche Daten vorhanden sind und in welchen Zusammenhängen sie basierend auf Common Sense existieren. Data Profiling stellt Unternehmen mit historisch gewachsenen Datenbanksystemen vor Herausforderungen für die datengestützte Transformation. Können die aktuellen Entwicklungen von Large Language Modellen (LLMs) dazu beitragen, automatisiert die Zusammenhänge von Spalten zu erkennen? Um diese Frage zu beantworten, widmet sich diese Seminararbeit, aufbauend auf der Arbeit von Trummer (2024), der Untersuchung, wie gut LLMs anhand einer Case Study die Korrelation von Daten erkennen können. Dazu wird ein LLM auf Basis von GPT-3 trainiert und mit einem Benchmark-Verfahren verglichen. Die Ergebnisse zeigen, dass LLMs eine hohe Genauigkeit bei der Korrelationserkennung aufweisen und damit Unternehmen bei der Datenanalyse unterstützen können.
-
-
 ---
-
 
 # Einleitung
 
@@ -58,47 +55,43 @@ abstract: |
 
 ## Data Profiling
 
-## Korrelationserkennung in Datenbanken
+## Erkennen von Korrelationen in Datens
 [@RN5578].
 
-## Sprachmodelle und deren Anwendung in der Datenanalyse
+## Language Models
 [@RN5576].
 
-# Methodik der Fallstudie
+## Nutzung von NLP für Datenbankanalyse
 
-## Datenbasis und Vorbereitung
+## Heterogenität in Datensätzen: am Beispiel des US Gender-Pay-Gap
 
-## Vorgehensweise zur Korrelationsanalyse mit LLM
+# Methodik 
 
-## Benchmark und Bewertungsmetriken
+## Setup der Studie
 
-# Durchführung der Fallstudie: Gender-Pay-Gap-Analyse
+### Datenbasis und Vorbereitung
+
+### Vorgehensweise zur Korrelationsanalyse mit LLM´s
+
+## Benchmark-Metriken und Analysea
+
+## Benchmark-Analyse
+
 Meine Überlegung ist es das Ergebnisse von [@bach2024heterogeneity].
 
-## Fragestellung
+# Ergebnisse
 
-## Implementierung des LLM für Korrelationserkennung
+## Darstellung der Ergebnisse
 
-## Benchmarking-Ergebnisse
+## Vergleich der Ergebnisse
 
-# Vergleich und Auswertung der Ergebnisse
+# Diskussion
 
-## Vergleich der Ergebnisse mit Prompoting
+## Diskussion der Ergebnisse
 
-## Szenariobasierte Auswertung
-
-## Bewertung der Korrelationserkennung
-
-# Diskussion der Ergebnisse und Implikationen
-
-## Interpretation der Ergebnisse
-
-## Limitationen
+## Stärken und Limitationen der Arbeit
 
 ## Praktische Anwendungsmöglichkeit
-
-# Fazit und Ausblick
-
 
 # Eidesstattliche Erklärung
 \section*{Eidesstattliche Erklärung}
