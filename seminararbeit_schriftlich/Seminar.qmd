@@ -50,6 +50,18 @@ abstract: |
 ---
 
 # Einleitung
+In Zeiten von Big Data ist es für Unternehmen von großer Bedeutung, ihre Datenbestände zu analysieren und zu verstehen. Datengetriebene Prozesse können Unternehmen nicht nur dabei helfen, ihre Prozesse zu optimieren, sondern auch bei der Entwicklung neuer Strategien. Ein signifikanter Teil der Daten in Unternehmen liegt in Datenbanken als strukturierte Daten vor z.B. in Form von Tabellen. Eine vielzahl von Tools ermöglicht es, diese Daten zu analysieren und zu visualisieren. Jedoch verwendet jedes Tool seine eigene query language. Beim Verwenden dieser Sprache ermöglicht es Nutzerinnen eine vielzahl von Datenanalseoperationen an strukturierten Daten zu durchzuführen. Diese query Sprache in natürlicher Sprache zu formulieren, bietet viel Potenzial für Unternehmen.
+Dadurch können Nutzerinnen festellen, welche Daten in den Datenbanken vorliegen und wie diese zueinander stehen, braucht es Mitarbeiter*innen, die einzeln überprüfen, welche Daten vorhanden sind und in welchen Zusammenhängen sie basierend auf Common Sense existieren. Data Profiling stellt Unternehmen mit historisch gewachsenen Datenbanksystemen vor Herausforderungen. Die aktuellen Entwicklungen von Large Language Modellen (LLMs) könnten dazu beitragen, automatisiert die Zusammenhänge von Spalten zu erkennen. Dies könnte Unternehmen bei der datengestützten Transformation unterstützen. LLMs können eine universelle lösung darstellen, um eine vielzahhl von Datenanalysen zu unterstützen, in unterschiedlichen typen von strukturierten Datentypen. Das analysieren von Daten mit der erstellung von Anfragen von LLMs in natürlicher Sprache, das Modell kann die Fragen in SQL übersetzen, ausführen und die Ergebnisse präsentieren.
+
+                            Frage
+Data Structure -------Natürliche Sprache Query Interface
+
+                          Query
+
+Data   ----------------Data processing Tool
+
+
+                          Ergebnisse
 
 # Hintergrund
 
