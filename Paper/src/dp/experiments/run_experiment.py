@@ -15,10 +15,9 @@ import pandas as pd
 import random as rand
 import time
 
-from simpletransformers.classification import (
-    ClassificationModel, ClassificationArgs
-)
+from transformers import AutoTokenizer, AutoModelForCausalLM, Trainer, TrainingArguments
 from sklearn.model_selection import train_test_split
+from simpletransformers.classification import ClassificationArgs, ClassificationModel
 
 
 def add_type(row):
@@ -154,7 +153,7 @@ def log_metrics(
         test_name: write this test name into result file.
         lb: lower bound on a test-specific metric constraining test cases.
         ub: upper bound on test-specific metric, constraining test cases.
-        pred_metho: whether to use language model or simple baseline.
+        pred_method: whether to use language model or simple baseline.
         out_path: path to result output file (results are appended).
     """
     sub_test.columns = [
@@ -231,10 +230,10 @@ if __name__ == '__main__':
         help='Maximal p-value for correlation (e.g., 0.05)')
     parser.add_argument(
         'mod_type', type=str,
-        help='Type of language model used for prediction (e.g., "roberta")')
+        help='Type of language model used for prediction (e.g., "Qwen")')
     parser.add_argument(
         'mod_name', type=str,
-        help='Language model used for prediction (e.g., "robert-base")')
+        help='Language model used for prediction (e.g., "Qwen")')
     parser.add_argument(
         'scenario', type=str,
         help='Default separation ("defsep") or by data set ("datasep")')
@@ -278,6 +277,10 @@ if __name__ == '__main__':
     # enrich column names if activated
     if args.use_types:    
         data = data.apply(add_type, axis=1)
+    
+    # Change the tokenizer and model here
+    tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2-1.5B-Instruct")
+    model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2-1.5B-Instruct")
     
     # filter data
     data = data[data['method']==coeff]
