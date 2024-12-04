@@ -14,11 +14,32 @@ import sklearn.metrics as metrics
 import pandas as pd
 import random as rand
 import time
+import torch
+import os
 
-from transformers import AutoTokenizer, AutoModelForCausalLM, Trainer, TrainingArguments
+from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
 from sklearn.model_selection import train_test_split
-from simpletransformers.classification import ClassificationArgs, ClassificationModel
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 
+from dotenv import load_dotenv
+import wandb
+from huggingface_hub import login
+
+# Laden der .env-Datei
+load_dotenv()
+
+# Abrufen der API-Schlüssel aus der Umgebung
+huggingface_api_key = os.getenv("HUGGINGFACE_HUB_TOKEN")
+wandb_api_key = os.getenv("WANDB_API_KEY")
+
+# Login to Hugging Face
+login(huggingface_api_key)
+
+# Login to Weights & Biases
+wandb.login(key=wandb_api_key)
+
+# Initialize wandb run
+wandb.init(project="Qwen training")
 
 def add_type(row):
     """ Enrich column name by adding column type.
@@ -33,18 +54,17 @@ def add_type(row):
     row['column2'] = row['column2'] + ' ' + row['type2']
     return row
 
-
 def def_split(data, test_ratio, seed):
     """ Split data into training and test set.
-    
+
     With this approach, different column pairs from the
     same data set may appear in training and test set.
-    
+
     Args:
         data: a pandas dataframe containing all data.
         test_ratio: ratio of test cases after split.
         seed: random seed for deterministic results.
-    
+
     Returns:
         a tuple containing training, then test data.
     """
@@ -58,60 +78,44 @@ def def_split(data, test_ratio, seed):
     print(f'test shape: {test.shape}')
     return train, test
 
-
 def ds_split(data, test_ratio):
     """ Split column pairs into training and test samples.
-    
+
     With this method, training and test set contain columns
     of disjunct data sets, making prediction a bit harder.
-    
+
     Args:
         data: a pandas dataframe containing all data.
         test_ratio: ratio of test cases after splitting.
-    
+
     Returns:
         a tuple containing training, then test set.
     """
     print('Separating training and test sets by data')
     counts = data['dataid'].value_counts()
-    print(f'Counts: {counts}')
-    print(f'Count.index: {counts.index}')
-    print(f'Count.index.values: {counts.index.values}')
-    print(f'counts.shape: {counts.shape}')
-    print(f'counts.iloc[0]: {counts.iloc[0]}')
     nr_vals = len(counts)
     nr_test_ds = int(nr_vals * test_ratio)
-    print(f'Nr. test data sets: {nr_test_ds}')
     ds_ids = counts.index.values.tolist()
-    print(type(ds_ids))
-    print(ds_ids)
     test_ds = rand.sample(ds_ids, nr_test_ds)
-    print(f'TestDS: {test_ds}')
-    
+
     def is_test(row):
-        if row['dataid'] in test_ds:
-            return True
-        else:
-            return False
-        
+        return row['dataid'] in test_ds
+
     data['istest'] = data.apply(is_test, axis=1)
     train = data[data['istest'] == False]
     test = data[data['istest'] == True]
     print(f'train.shape: {train.shape}')
     print(f'test.shape: {test.shape}')
-    print(train)
-    print(test)
     return train[
         ['column1', 'column2', 'type1', 'type2', 'label']], test[
             ['column1', 'column2', 'type1', 'type2', 'label']]
 
-
 def baseline(col_pairs):
     """ A simple baseline predicting correlation via Jaccard similarity.
-    
+
     Args:
         col_pairs: list of tuples with column names.
-    
+
     Returns:
         list of predictions (1 for correlation, 0 for no correlation).
     """
@@ -133,14 +137,13 @@ def baseline(col_pairs):
             predictions.append(0)
     return predictions
 
-
 # log all metrics into summary for data subset
 def log_metrics(
-        coeff, min_v1, max_v2, mod_type, mod_name, scenario, 
+        coeff, min_v1, max_v2, mod_type, mod_name, scenario,
         test_ratio, sub_test, test_name, lb, ub, pred_method,
-        out_path):
+        out_path, training_time):
     """ Predicts using baseline or model, writes metrics to file.
-    
+
     Args:
         coeff: predict correlation according to this coefficient.
         min_v1: lower bound on coefficient value for correlation.
@@ -155,6 +158,7 @@ def log_metrics(
         ub: upper bound on test-specific metric, constraining test cases.
         pred_method: whether to use language model or simple baseline.
         out_path: path to result output file (results are appended).
+        training_time: time taken to train the model.
     """
     sub_test.columns = [
         'text_a', 'text_b', 'type1', 'type2', 'labels', 'length', 'nrtokens']
@@ -189,13 +193,12 @@ def log_metrics(
                 f'{f1},{pre},{rec},{acc},{mcc},{t_per_s},' \
                 f'{training_time}\n')
 
-
 def names_length(row):
     """ Calculate combined length of column names.
-    
+
     Args:
         row: contains information on one column pair.
-    
+
     Returns:
         combined length of column names (in characters).
     """
@@ -203,57 +206,20 @@ def names_length(row):
 
 def names_tokens(row):
     """ Calculates number of tokens (separated by spaces).
-    
+
     Attention: this is not the number of tokens as calculated
     by the tokenizer of the language model but an approximation.
-    
+
     Args:
         row: contains information on one column pair.
-    
+
     Returns:
         number of space-separated substrings in both column names.
     """
     return row['text_a'].count(' ') + row['text_b'].count(' ')
 
-
-if __name__ == '__main__':
-    
-    parser = argparse.ArgumentParser()
-    parser.add_argument('src_path', type=str, help='Path to source file')
-    parser.add_argument(
-        'coeff', type=str, help='Correlation coefficient (e.g., "pearson")')
-    parser.add_argument(
-        'min_v1', type=float, 
-        help='Minimal coefficient value for correlation (e.g., 0.9)')
-    parser.add_argument(
-        'max_v2', type=float, 
-        help='Maximal p-value for correlation (e.g., 0.05)')
-    parser.add_argument(
-        'mod_type', type=str,
-        help='Type of language model used for prediction (e.g., "Qwen")')
-    parser.add_argument(
-        'mod_name', type=str,
-        help='Language model used for prediction (e.g., "Qwen")')
-    parser.add_argument(
-        'scenario', type=str,
-        help='Default separation ("defsep") or by data set ("datasep")')
-    parser.add_argument(
-        'test_ratio', type=float,
-        help='Ratio of samples used for testing (e.g., 0.2), not training')
-    parser.add_argument(
-        'use_types', type=int, help='Use types for prediction (1) or not (0)')
-    parser.add_argument(
-        'out_path', type=str, help='Path to output file containing results')
-    args = parser.parse_args()
-
-    # get command line parameters
-    coeff = args.coeff
-    min_v1 = args.min_v1
-    max_v2 = args.max_v2
-    mod_type = args.mod_type
-    mod_name = args.mod_name
-    scenario = args.scenario
-    test_ratio = args.test_ratio
+def run_experiment(src_path, coeff, min_v1, max_v2, mod_type, mod_name, scenario, test_ratio, use_types, out_path):
+    # print parameters
     print(f'Coefficients: {coeff}')
     print(f'Minimal value 1: {min_v1}')
     print(f'Maximal value 2: {max_v2}')
@@ -261,50 +227,63 @@ if __name__ == '__main__':
     print(f'Model name: {mod_name}')
     print(f'Scenario: {scenario}')
     print(f'Test ratio: {test_ratio}')
-    
+
     # initialize for deterministic results
     seed = 42
     rand.seed(seed)
-    
+
     # load data
-    data = pd.read_csv(args.src_path, sep = ',')
+    data = pd.read_csv(src_path, sep=',')
     data = data.sample(frac=1, random_state=seed)
     data.columns = [
-        'dataid', 'datapath', 'nrrows', 'nrvals1', 'nrvals2', 
-        'type1', 'type2', 'column1', 'column2', 'method', 
+        'dataid', 'datapath', 'nrrows', 'nrvals1', 'nrvals2',
+        'type1', 'type2', 'column1', 'column2', 'method',
         'coefficient', 'pvalue', 'time']
 
     # enrich column names if activated
-    if args.use_types:    
+    if use_types:
         data = data.apply(add_type, axis=1)
-    
-    # Change the tokenizer and model here
-    tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2-1.5B-Instruct")
-    model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2-1.5B-Instruct")
-    
+
+    # Initialize the tokenizer and model from the pre-trained model name
+    tokenizer = AutoTokenizer.from_pretrained(mod_name)
+    model = AutoModelForSequenceClassification.from_pretrained(mod_name, num_labels=2)
+
+    # Set a padding token if not already set
+    if tokenizer.pad_token is None:
+         tokenizer.pad_token = tokenizer.eos_token
+
+    # Update the model configuration to include the pad_token_id
+    model.config.pad_token_id = tokenizer.pad_token_id
+
+    # Check if GPU is available and set the device accordingly
+    device = torch.device('cuda') #if torch.cuda.is_available() else torch.device('cpu')
+
+    # Move the model to the GPU if available
+    model.to(device)
+
     # filter data
-    data = data[data['method']==coeff]
+    data = data[data['method'] == coeff]
     nr_total = len(data.index)
     print(f'Nr. samples: {nr_total}')
     print('Sample from filtered data:')
     print(data.head())
-    
+
     # label data
     def coefficient_label(row):
-        """ Label column pair as correlated or uncorrelated. 
-        
+        """ Label column pair as correlated or uncorrelated.
+
         Args:
             row: describes correlation between column pair.
-        
+
         Returns:
-            1 if correlated, 0 if not correlated. 
+            1 if correlated, 0 if not correlated.
         """
         if abs(row['coefficient']) >= min_v1 and abs(row['pvalue']) <= max_v2:
             return 1
         else:
             return 0
     data['label'] = data.apply(coefficient_label, axis=1)
-    
+
     # split into test and training
     if scenario == 'defsep':
         train, test = def_split(data, test_ratio, seed)
@@ -312,52 +291,85 @@ if __name__ == '__main__':
         train, test = ds_split(data, test_ratio)
     else:
         raise ValueError(f'Undefined scenario: {scenario}')
-    
+
     train.columns = ['text_a', 'text_b', 'type1', 'type2', 'labels']
     test.columns = ['text_a', 'text_b', 'type1', 'type2', 'labels']
     print(train.head())
     print(test.head())
-    
-    # prepare loss scaling
-    lab_counts = train['labels'].value_counts()
-    nr_zeros = lab_counts.loc[0]
-    nr_ones = lab_counts.loc[1]
-    nr_all = float(len(train.index))
-    weights = [nr_all/nr_zeros, nr_all/nr_ones]
-    
-    # train classification model
+
+    # prepare dataset for transformers
+    train_encodings = tokenizer(train['text_a'].tolist(), train['text_b'].tolist(), truncation=True, padding=True)
+    test_encodings = tokenizer(test['text_a'].tolist(), test['text_b'].tolist(), truncation=True, padding=True)
+
+    class Dataset(torch.utils.data.Dataset):
+        def __init__(self, encodings, labels):
+            self.encodings = encodings
+            self.labels = labels
+
+        def __getitem__(self, idx):
+            item = {key: torch.tensor(val[idx]) for key, val in self.encodings.items()}
+            item['labels'] = torch.tensor(self.labels[idx])
+            return item
+
+        def __len__(self):
+            return len(self.labels)
+
+    train_dataset = Dataset(train_encodings, train['labels'].tolist())
+    test_dataset = Dataset(test_encodings, test['labels'].tolist())
+    # Ensure the output and logging directories exist
+    output_dir = 'G:/Meine Ablage/Colab Notebooks/Liter/correlations/results'
+    logging_dir = 'G:/Meine Ablage/Colab Notebooks/Liter/correlations/logs'
+
+    os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(logging_dir, exist_ok=True)
+
+    # prepare training arguments
+    training_args = TrainingArguments(
+        output_dir=output_dir,
+        num_train_epochs=3,  # Reduce the number of epochs
+        per_device_train_batch_size=8,  # Smaller batch size
+        per_device_eval_batch_size=16,
+        gradient_accumulation_steps=4,  # Accumulate gradients
+        fp16=True,  # Enable mixed-precision training
+        warmup_steps=50,  # Reduce warmup steps
+        weight_decay=0.01,
+        logging_dir=logging_dir,
+        logging_steps=100,  # Adjust logging frequency
+        evaluation_strategy="epoch",
+        optim="adamw_torch"  # Memory-efficient optimizer
+    )
+
+    trainer = Trainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_dataset,
+        eval_dataset=test_dataset,
+        compute_metrics=compute_metrics
+    )
+
+    # train the model
     s_time = time.time()
-    model_args = ClassificationArgs(
-        num_train_epochs=5, train_batch_size=100, eval_batch_size=100,
-        overwrite_output_dir=True, manual_seed=seed, 
-        evaluate_during_training=True, no_save=True)
-    model = ClassificationModel(
-        mod_type, mod_name, weight=weights,
-        use_cuda = True, args=model_args)
-    model.train_model(
-        train_df=train, eval_df=test, acc=metrics.accuracy_score, 
-        rec=metrics.recall_score, pre=metrics.precision_score, 
-        f1=metrics.f1_score)
+    trainer.train()
     training_time = time.time() - s_time
-    
+
     test['length'] = test.apply(names_length, axis=1)
     test['nrtokens'] = test.apply(names_tokens, axis=1)
-    
+
     # Initialize result file
-    with open(args.out_path, 'w') as file:
+    with open(out_path, 'w') as file:
         file.write(
             'coefficient,min_v1,max_v2,mod_type,mod_name,scenario,test_ratio,'
             'test_name,pred_method,lb,ub,f1,precision,recall,accuracy,mcc,'
             'prediction_time,training_time\n')
-        
+
     # use simple baseline and model for prediction
     for m in [0, 1]:
         # use entire test set (redundant - for verification)
         test_name = f'{m}-final'
         log_metrics(
-            coeff, min_v1, max_v2, mod_type, mod_name, scenario, 
-            test_ratio, test, test_name, 0, 'inf', m, args.out_path)
-    
+            coeff, min_v1, max_v2, mod_type, mod_name, scenario,
+            test_ratio, test, test_name, 0, 'inf', m, out_path, training_time)
+
         # test for data types
         for type1 in ['object', 'float64', 'int64', 'bool']:
             for type2 in ['object', 'float64', 'int64', 'bool']:
@@ -365,10 +377,10 @@ if __name__ == '__main__':
                 if sub_test.shape[0]:
                     test_name = f'Types{type1}-{type2}'
                     log_metrics(
-                        coeff, min_v1, max_v2, mod_type, mod_name, scenario, 
-                        test_ratio, sub_test, test_name, -1, -1, m, 
-                        args.out_path)
-    
+                        coeff, min_v1, max_v2, mod_type, mod_name, scenario,
+                        test_ratio, sub_test, test_name, -1, -1, m,
+                        out_path, training_time)
+
         # test for different subsets
         for q in [(0, 0.25), (0.25, 0.5), (0.5, 1)]:
             qlb = q[0]
@@ -379,13 +391,40 @@ if __name__ == '__main__':
             sub_test = test[(test['length'] >= lb) & (test['length'] <= ub)]
             test_name = f'L{m}-{qlb}-{qub}'
             log_metrics(
-                coeff, min_v1, max_v2, mod_type, mod_name, scenario, 
-                test_ratio, sub_test, test_name, lb, ub, m, args.out_path)
+                coeff, min_v1, max_v2, mod_type, mod_name, scenario,
+                test_ratio, sub_test, test_name, lb, ub, m, out_path, training_time)
             # number of tokens in column names
             lb = test['nrtokens'].quantile(qlb)
             ub = test['nrtokens'].quantile(qub)
             sub_test = test[(test['nrtokens'] >= lb) & (test['nrtokens'] <= ub)]
             test_name = f'N{m}-{qlb}-{qub}'
             log_metrics(
-                coeff, min_v1, max_v2, mod_type, mod_name, scenario, 
-                test_ratio, sub_test, test_name, lb, ub, m, args.out_path)
+                coeff, min_v1, max_v2, mod_type, mod_name, scenario,
+                test_ratio, sub_test, test_name, lb, ub, m, out_path, training_time)
+
+def compute_metrics(p):
+    preds = p.predictions.argmax(-1)
+    precision, recall, f1, _ = precision_recall_fscore_support(p.label_ids, preds, average='binary')
+    acc = accuracy_score(p.label_ids, preds)
+    return {
+        'accuracy': acc,
+        'f1': f1,
+        'precision': precision,
+        'recall': recall
+    }
+
+# Example usage in a Jupyter Notebook or Google Colab
+args = {
+    "src_path": "G:/Meine Ablage/Colab Notebooks/Liter/correlations/correlationdata.csv",
+    "coeff": "pearson",
+    "min_v1": 0.9,
+    "max_v2": 0.05,
+    "mod_type": "Qwen",
+    "mod_name": "Qwen/Qwen2-0.5B-Instruct",
+    "scenario": "defsep",
+    "test_ratio": 0.2,
+    "use_types": 1,
+    "out_path": "G:/Meine Ablage/Colab Notebooks/Liter/correlations/correlationdata.csv"
+}
+
+run_experiment(**args)

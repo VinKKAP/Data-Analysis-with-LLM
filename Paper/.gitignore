@@ -3,3 +3,5 @@ predict/wandb/**
 predict/cache_dir/**
 predict/outputs/**
 predict/runs/**
+env/
+myenv/
