@@ -64,6 +64,26 @@ Data   ----------------Data processing Tool
                           Ergebnisse
 
 # Hintergrund
+Ein signifikanter anteil der weltweit sturukturierten Daten befindet sich in Tabellen wieder. Diese Informationsquellen effektiv zu nutzen stellt Unternehmen, insbesondere Großunternehmen, vor der Herausforderung die benöteten fähigkeiten zu entwickeln. Hierfür ist es essentiell die tabellarischen Daten effizient und akkurat zu verstehen, zu verarbeiten, zu analysieren und einen wertschöpfenden Output zu generieren. Im Bezug zu den stettig schneller wachsenden Datenmengen und den historisch gewachsenen Informationssystemen, ist es eine komplexe aufgabe für die Anwendenden, um Textinhalte, numerische Werte, Formate oder Formeln in Tabellen zu verstehen.
+
+
+Die generierung von Code und Text, bietet anwendern nun neue möglichkeiten ihre arbeitweise zu verändern, zu verbessern und zu automatisieren. 
+
+
+
+Welche möglichkeiten die neuen durchbrüche ermöglichen wird gerade erst schrittweise erkannt. LLMs bieten im bezug zu tabelarischen Daten die möglichkeit anwendern dabei zu helfen Datenbanken besser und schneller zu verstehen.  
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Data Profiling
 
@@ -74,18 +94,70 @@ Data   ----------------Data processing Tool
 [@RN5576].
 
 ## Nutzung von NLP für Datenbankanalyse
+Die durchbrüche von Large Language Models (LLMs) biete neue möglichkeiten in der verarbeitung von natürliche Sprache (NLP) und maschinellen Lernen (ML), dies eröffnet bemerkenswerte Erfolge beim verstehen und generieren von Text, Code etc.. 
+LLMs arbeiten mit linearen Textsequenzen, um Tabellen für die Modelle nutzbar zu machen, müssen sie aus dem strukturierten, zweidimensionalen Format linearisiert werden z.B. CSV oder JSON. Sehr große Tabellen bringen die Modelle wegen der hohen Anzahl der Tokens an ihre grenzen. 
+
+// Unterstützen  können hier Strategien wie Trunkierung, Retrieval-Augmentation und die segmentierung großer Tabellen.// 
+
+Das Trainieren von Modellen auf tabellenspezifischen Daten und Multi-Task-Finetuning verbessern  die Anpassungsfähigkeit der Modelle. Hierfür werden die Modelle mit realen Datensätzen und einer omptimierten Trainingsstragie trainiert, um Tabllendaten besser zu verstehen.
+
+// Training von LLMs für tabellarische Daten (Table-GPT und TableLlama)// 
+
+
+LLMs können zum einen dabei helfen Tabellendaten zu interpretieren und zu verarbetien in dem sie die Datentypen in den Spalten Identifizieren, die "Entität" der Spalten miteinander verküpfen oder die Tabellendaten strukturieren. 
+Zum anderen können LLMs dabei helfen den Output aus den Daten zu analysieren oder die Schlussfolgerung zu überprüfen in dem sie eine logische und semantische Verbindungen in Tabellen zu erkennen. 
+
+// TabFact und WikiTableQuestions bewerten die Leistungsfähigkeit der Modelle //
+TaBERT 
+
+## LLM-gesteuerte Tabellen-Agenten 
+Agentenarchitekturen: LLMs können als Agenten agieren, die komplexe tabellarische Aufgaben in kleinere Schritte zerlegen und externe Werkzeuge nutzen.
+Iterative Ansätze: Systeme wie ReAct analysieren und optimieren ihre Entscheidungen iterativ, bis sie das gewünschte Ergebnis erreichen.
+Integration von Aktionen: LLM-Agenten können benutzerdefinierte Aktionen oder APIs nutzen, um Tabellen effizienter zu manipulieren.
+
+## Semantik Parsing 
+
+
+
 
 ## Heterogenität in Datensätzen: am Beispiel des US Gender-Pay-Gap
 
+Modelle benötigen bei besonders heterogenen Datensätzen einen größeren Kontext um Sinnvolle zusammenhänge in den Datensätzen zu identifizieren. Dies liegt daran das es zum einen eine vielzahl von Datentypen gibt und zum anderen das die zusammenhänge nicht trivial sind. Am Beipiel des Genderpaygaps 
+
+
+BACH PAPER
+
+
+
+
+
+
+
+
 # Methodik 
+
+
+
 
 ## Setup der Studie
 
+### Forschungsfragen
+
+Wie gut ist die Interpretationsfähigkeit von LLMs im bezug zu heterogenen Datensätzen.
+
+
+
 ### Datenbasis und Vorbereitung
+
+
 
 ### Vorgehensweise zur Korrelationsanalyse mit LLM´s
 
+
+
 ## Benchmark-Metriken und Analysea
+
+
 
 ## Benchmark-Analyse
 
@@ -93,17 +165,41 @@ Meine Überlegung ist es das Ergebnisse von [@bach2024heterogeneity].
 
 # Ergebnisse
 
+
+
 ## Darstellung der Ergebnisse
+
+
+
+
 
 ## Vergleich der Ergebnisse
 
+
+
 # Diskussion
+
+
 
 ## Diskussion der Ergebnisse
 
+
+
+
 ## Stärken und Limitationen der Arbeit
 
+
+
+
+
 ## Praktische Anwendungsmöglichkeit
+
+
+
+
+
+
+
 
 # Eidesstattliche Erklärung
 \section*{Eidesstattliche Erklärung}
