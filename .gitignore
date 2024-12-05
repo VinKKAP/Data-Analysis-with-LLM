@@ -5,4 +5,7 @@ predict/outputs/**
 predict/runs/**
 env/
 myenv/
+<<<<<<< HEAD
 experiment/data/usa_00001.csv
+=======
+>>>>>>> 40533f31c4ab3d01b180c28346c3d4345eb46551
