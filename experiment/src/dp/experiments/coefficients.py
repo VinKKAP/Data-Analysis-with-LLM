@@ -13,7 +13,7 @@ import sys
 import time
 import wandb
 
-<<<<<<< HEAD
+
 if __name__ == '__main__':
     # get command line parameters
     coeff = sys.argv[1]
@@ -254,7 +254,6 @@ if __name__ == '__main__':
             sub_test = test[(test['wordratio'] >= lb) & (test['wordratio'] <= ub)]
             test_name = f'W{m}-{qlb}-{qub}'
             log_metrics(sub_test, test_name, lb, ub, m)
-=======
 # get command line parameters
 coeff = sys.argv[1]
 min_v1 = float(sys.argv[2])
@@ -493,4 +492,3 @@ for m in [0, 1]:
         sub_test = test[(test['wordratio'] >= lb) & (test['wordratio'] <= ub)]
         test_name = f'W{m}-{qlb}-{qub}'
         log_metrics(sub_test, test_name, lb, ub, m)
->>>>>>> 40533f31c4ab3d01b180c28346c3d4345eb46551
