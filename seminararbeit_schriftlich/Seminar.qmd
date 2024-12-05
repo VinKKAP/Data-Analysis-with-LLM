@@ -72,28 +72,12 @@ Die generierung von Code und Text, bietet anwendern nun neue möglichkeiten ihre
 
 
 Welche möglichkeiten die neuen durchbrüche ermöglichen wird gerade erst schrittweise erkannt. LLMs bieten im bezug zu tabelarischen Daten die möglichkeit anwendern dabei zu helfen Datenbanken besser und schneller zu verstehen.  
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Data Profiling
-
-## Erkennen von Korrelationen in Datens
-[@RN5578].
 
 ## Language Models
 [@RN5576].
 
-## Nutzung von NLP für Datenbankanalyse
+# Nutzung von NLP für Datenbankanalyse
 Die durchbrüche von Large Language Models (LLMs) biete neue möglichkeiten in der verarbeitung von natürliche Sprache (NLP) und maschinellen Lernen (ML), dies eröffnet bemerkenswerte Erfolge beim verstehen und generieren von Text, Code etc.. 
 LLMs arbeiten mit linearen Textsequenzen, um Tabellen für die Modelle nutzbar zu machen, müssen sie aus dem strukturierten, zweidimensionalen Format linearisiert werden z.B. CSV oder JSON. Sehr große Tabellen bringen die Modelle wegen der hohen Anzahl der Tokens an ihre grenzen. 
 
@@ -110,27 +94,27 @@ Zum anderen können LLMs dabei helfen den Output aus den Daten zu analysieren od
 // TabFact und WikiTableQuestions bewerten die Leistungsfähigkeit der Modelle //
 TaBERT 
 
-## LLM-gesteuerte Tabellen-Agenten 
-Agentenarchitekturen: LLMs können als Agenten agieren, die komplexe tabellarische Aufgaben in kleinere Schritte zerlegen und externe Werkzeuge nutzen.
-Iterative Ansätze: Systeme wie ReAct analysieren und optimieren ihre Entscheidungen iterativ, bis sie das gewünschte Ergebnis erreichen.
-Integration von Aktionen: LLM-Agenten können benutzerdefinierte Aktionen oder APIs nutzen, um Tabellen effizienter zu manipulieren.
-
 ## Semantik Parsing 
 
 
 
 
+
+## Erkennen von Korrelationen in Daten
+[@RN5578].
+
+
+
+## LLM-gesteuerte Tabellen-Agenten 
+Agentenarchitekturen: LLMs können als Agenten agieren, die komplexe tabellarische Aufgaben in kleinere Schritte zerlegen und externe Werkzeuge nutzen.
+Iterative Ansätze: Systeme wie ReAct analysieren und optimieren ihre Entscheidungen iterativ, bis sie das gewünschte Ergebnis erreichen.
+Integration von Aktionen: LLM-Agenten können benutzerdefinierte Aktionen oder APIs nutzen, um Tabellen effizienter zu manipulieren.
+
 ## Heterogenität in Datensätzen: am Beispiel des US Gender-Pay-Gap
 
-Modelle benötigen bei besonders heterogenen Datensätzen einen größeren Kontext um Sinnvolle zusammenhänge in den Datensätzen zu identifizieren. Dies liegt daran das es zum einen eine vielzahl von Datentypen gibt und zum anderen das die zusammenhänge nicht trivial sind. Am Beipiel des Genderpaygaps 
-
+Modelle benötigen bei besonders heterogenen Datensätzen einen größeren Kontext um Sinnvolle zusammenhänge in den Datensätzen zu identifizieren. Dies liegt daran das es zum einen eine vielzahl von Datentypen gibt und zum anderen das die zusammenhänge nicht trivial sind. Am Beipiel des Genderpaygaps ist neben der heterogenität der Datenformate, die komplexität des Themas die wessentliche herausforderung bei der analyse. Die korrelationserkkung von nicht trivialen beziehung, die ungleiche verteilung der Daten (Bias),  die größe der Datenmengen, aber auch die schwierigkeit die abgeleiteten Korrelationen Nachvollziehbar und Erklärbar für die dritte zu gestallten. 
 
 BACH PAPER
-
-
-
-
-
 
 
 
