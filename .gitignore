@@ -5,3 +5,4 @@ predict/outputs/**
 predict/runs/**
 env/
 myenv/
+experiment/data/usa_00001.csv/
