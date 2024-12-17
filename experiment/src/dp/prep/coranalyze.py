@@ -11,9 +11,6 @@ dsid = sys.argv[2]
 # read, cut, and factorize data
 #print(f'Reading data from path {path}', flush=True)
 data = pd.read_csv(path)
-nr_cols = len(data.columns)
-if nr_cols > 10:
-    data = data.iloc[:,range(0,10)]
 data.dropna(inplace=True)
 
 # get basic info on columns
