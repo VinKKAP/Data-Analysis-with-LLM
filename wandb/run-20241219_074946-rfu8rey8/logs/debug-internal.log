@@ -1,0 +1,9 @@
+{"time":"2024-12-19T07:49:46.941298128Z","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2024-12-19T07:49:46.941331297Z","level":"INFO","msg":"created symlink","path":"/home/jovyan/Data-Analysis-with-LLM/wandb/run-20241219_074946-rfu8rey8/logs/debug-core.log"}
+{"time":"2024-12-19T07:49:47.047031358Z","level":"INFO","msg":"created new stream","id":"rfu8rey8"}
+{"time":"2024-12-19T07:49:47.047072108Z","level":"INFO","msg":"stream: started","id":"rfu8rey8"}
+{"time":"2024-12-19T07:49:47.047155777Z","level":"INFO","msg":"sender: started","stream_id":"rfu8rey8"}
+{"time":"2024-12-19T07:49:47.047119857Z","level":"INFO","msg":"writer: Do: started","stream_id":"rfu8rey8"}
+{"time":"2024-12-19T07:49:47.047145307Z","level":"INFO","msg":"handler: started","stream_id":"rfu8rey8"}
+{"time":"2024-12-19T07:49:47.316172634Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-19T08:34:57.699521165Z","level":"INFO","msg":"Pausing system monitor"}

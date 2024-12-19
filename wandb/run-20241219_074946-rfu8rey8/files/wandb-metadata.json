@@ -1,0 +1,40 @@
+{
+  "os":  "Linux-6.1.0-28-amd64-x86_64-with-glibc2.36",
+  "python":  "CPython 3.11.2",
+  "startedAt":  "2024-12-19T07:49:46.938798Z",
+  "program":  "<python with no main file>",
+  "git":  {
+    "remote":  "https://github.com/VinKKAP/Data-Analysis-with-LLM.git",
+    "commit":  "517fdee730ce78b0561665eca483f79611c0b439"
+  },
+  "email":  "vincent.konstantin.kapp@gmail.com",
+  "root":  "/home/jovyan/Data-Analysis-with-LLM",
+  "host":  "1ae29f473149",
+  "executable":  "/usr/bin/python3",
+  "cpu_count":  24,
+  "cpu_count_logical":  48,
+  "gpu":  "Quadro RTX 5000",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "54370893824",
+      "used":  "19604570112"
+    }
+  },
+  "memory":  {
+    "total":  "540762394624"
+  },
+  "cpu":  {
+    "count":  24,
+    "countLogical":  48
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "Quadro RTX 5000",
+      "memoryTotal":  "17179869184",
+      "cudaCores":  3072,
+      "architecture":  "Turing"
+    }
+  ],
+  "cudaVersion":  "12.6"
+}
